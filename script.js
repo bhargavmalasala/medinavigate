@@ -37,3 +37,56 @@ document.addEventListener('scroll', () => {
         }
     });
 });
+
+// Scramble Effect Function
+function scrambleEffect(element, finalNumber, duration = 2000) {
+    let startTime = null;
+
+    function animate(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = timestamp - startTime;
+        const progressRatio = Math.min(progress / duration, 1);
+
+        // Generate a random number for the scramble effect
+        const randomNumber = Math.floor(Math.random() * finalNumber);
+        element.textContent = randomNumber;
+
+        // If animation is not complete, continue
+        if (progressRatio < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            // Set the final number
+            element.textContent = finalNumber;
+        }
+    }
+
+    // Start the animation
+    requestAnimationFrame(animate);
+}
+
+// Function to trigger scramble effect when the section is in view
+function triggerScrambleEffect() {
+    const hospitalCount = document.getElementById('hospitalCount');
+    const userCount = document.getElementById('userCount');
+    const cityCount = document.getElementById('cityCount');
+
+    const options = {
+        threshold: 0.5, // Trigger when 50% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                scrambleEffect(hospitalCount, 500);
+                scrambleEffect(userCount, 10000);
+                scrambleEffect(cityCount, 50);
+                observer.unobserve(entry.target); // Stop observing after triggering
+            }
+        });
+    }, options);
+
+    observer.observe(document.querySelector('.statistics'));
+}
+
+// Call the function when the page loads
+window.addEventListener('load', triggerScrambleEffect);

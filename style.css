@@ -2,7 +2,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: #1e1e1e;
+  background: #000000;
   color: #fff;
   width: 100%;
   height: 100%;
@@ -14,7 +14,7 @@ header {
   align-items: center;
   padding: 20px 50px;
   width: 94%;
-  background: #1e1e1e;
+  background: black;
   color: white;
   position: fixed;
   top: 0;
@@ -86,11 +86,11 @@ nav a:hover {
 }
 
 .search-container {
-  width: 50%;
+  width: 70%;
   margin: 40px auto;
   margin-bottom: 30px;
   padding: 40px;
-  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+  background: linear-gradient(135deg, #000000, #2d2d2d);
   border-radius: 15px;
   box-shadow: 0px 15px 40px rgba(0, 210, 255, 0.5);
   text-align: center;
@@ -178,7 +178,7 @@ nav a:hover {
 .step {
   width: 200px;
   padding: 20px;
-  background: #1e1e1e;
+  background: black;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
   text-align: center;
@@ -213,7 +213,7 @@ nav a:hover {
 .about-section {
   padding: 80px 50px;
   text-align: center;
-  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+  background:  black;
   color: white;
 }
 
@@ -259,7 +259,7 @@ nav a:hover {
 .step {
   width: 250px;
   padding: 20px;
-  background: #1e1e1e;
+  background: black;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
   text-align: center;
@@ -334,7 +334,7 @@ nav a:hover {
 .member {
   width: 200px;
   padding: 20px;
-  background: #1e1e1e;
+  background: black;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
   text-align: center;
@@ -342,10 +342,11 @@ nav a:hover {
 }
 
 .member img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 200px;
+  height: 250px;
+  border-radius: 5%;
   margin-bottom: 20px;
+  object-fit: cover;
 }
 
 .member h3 {
@@ -371,7 +372,7 @@ nav a:hover {
 footer {
   text-align: center;
   padding: 20px;
-  background: #1e1e1e;
+  background: black;
   color: white;
   margin-top: 0px;
 }
@@ -380,7 +381,7 @@ footer {
 .contact-section {
   padding: 80px 50px;
   text-align: center;
-  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+  background: black;
   color: white;
 }
 
@@ -402,7 +403,7 @@ footer {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
-  background: #1e1e1e;
+  background: black;
   border-radius: 15px;
   box-shadow: 0px 10px 30px rgba(0, 210, 255, 0.3);
   animation: slideUp 1.5s ease-out;
@@ -466,7 +467,7 @@ footer {
 .info-item {
   width: 250px;
   padding: 20px;
-  background: #1e1e1e;
+  background: black;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
   text-align: center;
@@ -494,7 +495,6 @@ footer {
   cursor: pointer;
 }
 
-/* Social Media Links */
 .social-media {
   margin: 80px 0;
   text-align: center;
@@ -514,7 +514,7 @@ footer {
 .social-icon {
   font-size: 24px;
   color: #00d2ff;
-  background: #1e1e1e;
+  background: black;
   padding: 15px;
   border-radius: 50%;
   width: 50px;
@@ -530,7 +530,6 @@ footer {
   transform: scale(1.1);
 }
 
-/* Map */
 .map {
   margin: 80px 0;
   border-radius: 15px;
@@ -539,11 +538,256 @@ footer {
   animation: slideUp 1.5s ease-out;
 }
 
+footer {
+  text-align: center;
+  padding: 20px;
+  background: black;
+  color: white;
+  margin-top: 0px;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('o.png') ;
+  background-size: contain;
+  opacity: 0.2;
+  z-index: 1;
+  animation: zoomInOut 1s infinite alternate;
+}
+
+@keyframes zoomInOut {
+  0% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1.1);
+  }
+}
+
+/* Statistics Section */
+.statistics {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px 20px;
+  background: #000000;
+  color: white;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item i {
+  font-size: 40px;
+  color: #00d2ff;
+  margin-bottom: 20px;
+}
+
+.stat-item h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* How It Works Section */
+.instructions {
+  padding: 80px 20px;
+  text-align: center;
+  background: #030303;
+  color: white;
+}
+
+.instruction-steps {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.step {
+  width: 250px;
+  padding: 20px;
+  background: #000000;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.step i {
+  font-size: 40px;
+  color: #00d2ff;
+  margin-bottom: 20px;
+}
+
+.step h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.step:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 80px 20px;
+  text-align: center;
+  background: #000000;
+  color: white;
+}
+
+.testimonial-carousel {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  width: 300px;
+  padding: 20px;
+  background: #2d2d2d;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.testimonial p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.testimonial h3 {
+  font-size: 20px;
+  color: #00d2ff;
+}
+
+.testimonial:hover {
+  transform: scale(1.05);
+}
+
+/* Featured Hospitals Section */
+.featured-hospitals {
+  padding: 80px 20px;
+  text-align: center;
+  background: #030303;
+  color: white;
+}
+
+.hospital-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  background: #000000;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Call-to-Action Section */
+.cta {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: white;
+}
+
+.cta h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.cta button {
+  background: white;
+  color: #00d2ff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cta button:hover {
+  background: #3a7bd5;
+  color: white;
+  transform: scale(1.05);
+}
+
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background: #1e1e1e;
+  background: #000000;
   color: white;
-  margin-top: 0px;
 }

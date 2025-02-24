@@ -1,61 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medinavigate</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <header>
-        <div class="logo">
-            <i class="fas fa-hospital"></i> MEDINAVIGATE
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
+      <div class="logo"><i class="fas fa-hospital"></i> MEDINAVIGATE</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
     </header>
 
     <main>
-        <div class="hero-section">
-            <h1>Find the Best Hospitals for Your Needs</h1>
-            <p>Search symptoms or diseases and get the best hospital recommendations instantly.</p>
-        </div>
-        <div class="search-container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>Find the Best Hospitals for Your Needs</h1>
+          <p>
+            Search symptoms or diseases and get the best hospital
+            recommendations instantly.
+          </p>
+          <div class="search-container">
             <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Search your problem...">
-                <button onclick="searchHospitals()">Search</button>
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search your problem..."
+              />
+              <button onclick="searchHospitals()">Search</button>
             </div>
+          </div>
         </div>
-        <div class="instructions">
-            <h2>How It Works</h2>
-            <div class="instruction-steps">
-                <div class="member">
-                    <i class="fas fa-stethoscope"></i>
-                    <p>Enter a symptom or disease</p>
-                </div>
-                <div class="member">
-                    <i class="fas fa-list"></i>
-                    <p>Select from suggestions</p>
-                </div>
-                <div class="member">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>Allow location access</p>
-                </div>
-                <div class="member">
-                    <i class="fas fa-hospital"></i>
-                    <p>Find the best hospitals</p> 
-                </div>
-            </div>
+        <div class="hero-animation"></div>
+        <!-- For background animation -->
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="statistics">
+        <div class="stat-item">
+          <i class="fas fa-hospital"></i>
+          <h2 id="hospitalCount">0</h2>
+          <p>Hospitals Listed</p>
         </div>
+        <div class="stat-item">
+          <i class="fas fa-users"></i>
+          <h2 id="userCount">0</h2>
+          <p>Happy Users</p>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <h2 id="cityCount">0</h2>
+          <p>Cities Covered</p>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="instructions">
+        <h2>How It Works</h2>
+        <div class="instruction-steps">
+          <div class="step">
+            <i class="fas fa-stethoscope"></i>
+            <h3>Enter Symptoms</h3>
+            <p>Describe your health issue or symptoms.</p>
+          </div>
+          <div class="step">
+            <i class="fas fa-list"></i>
+            <h3>Select Suggestions</h3>
+            <p>Choose from our curated list.</p>
+          </div>
+          <div class="step">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Share Location</h3>
+            <p>Allow us to find hospitals near you.</p>
+          </div>
+          <div class="step">
+            <i class="fas fa-hospital"></i>
+            <h3>Get Recommendations</h3>
+            <p>Receive the best hospital options.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-carousel">
+          <div class="testimonial">
+            <p>
+              "Medinavigate helped me find the best hospital for my treatment.
+              Highly recommended!"
+            </p>
+            <h3>- John Doe</h3>
+          </div>
+          <div class="testimonial">
+            <p>
+              "The platform is easy to use, and the recommendations are spot
+              on!"
+            </p>
+            <h3>- Jane Smith</h3>
+          </div>
+          <div class="testimonial">
+            <p>
+              "I found a specialized hospital near me in just a few clicks.
+              Amazing service!"
+            </p>
+            <h3>- Emily Clark</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Hospitals Section -->
+      <section class="featured-hospitals">
+        <h2>Featured Hospitals</h2>
+        <div class="hospital-cards">
+          <div class="card">
+            <img src="https://via.placeholder.com/300" alt="Hospital 1" />
+            <h3>City General Hospital</h3>
+            <p>Specialized in Cardiology and Neurology.</p>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300" alt="Hospital 2" />
+            <h3>Green Valley Clinic</h3>
+            <p>Leading in Orthopedics and Pediatrics.</p>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300" alt="Hospital 3" />
+            <h3>Sunrise Medical Center</h3>
+            <p>Best for Cancer Treatment and Surgery.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call-to-Action Section -->
+      <section class="cta">
+        <h2>Ready to Find the Best Hospital?</h2>
+        <p>
+          Join thousands of users who trust Medinavigate for their healthcare
+          needs.
+        </p>
+        <button onclick="location.href='about.html'">Learn More</button>
+      </section>
     </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Medinavigate. All rights reserved.</p>
+      <p>&copy; 2025 Medinavigate. All rights reserved.</p>
     </footer>
-</body>
+  </body>
 </html>
