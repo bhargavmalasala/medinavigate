@@ -56,7 +56,7 @@ function scrambleEffect(element, finalNumber, duration = 2000) {
             requestAnimationFrame(animate);
         } else {
             // Set the final number
-            element.textContent = finalNumber;
+            element.textContent = finalNumber + '+';
         }
     }
 
@@ -77,8 +77,8 @@ function triggerScrambleEffect() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                scrambleEffect(hospitalCount, 500);
-                scrambleEffect(userCount, 10000);
+                scrambleEffect(hospitalCount, 85);
+                scrambleEffect(userCount, 365);
                 scrambleEffect(cityCount, 50);
                 observer.unobserve(entry.target); // Stop observing after triggering
             }
