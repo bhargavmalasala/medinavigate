@@ -231,3 +231,28 @@ document.addEventListener("scroll", () => {
     }
   });
 });
+
+// Handle form submission
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent page refresh
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const formData = {
+      name: name,
+      email: email,
+      message: message,
+      timestamp: new Date().toISOString()
+  };
+
+  // For local storage (as per your last request)
+  let storedData = JSON.parse(localStorage.getItem("contactMessages")) || [];
+  storedData.push(formData);
+  localStorage.setItem("contactMessages", JSON.stringify(storedData));
+
+  console.log("Form Data Submitted:", formData); // Debugging
+  alert("Thank you for your message! It has been saved locally."); // Alert should appear
+  document.getElementById("contactForm").reset(); // Clear the form
+});
