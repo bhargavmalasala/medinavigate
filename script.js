@@ -75,7 +75,7 @@ async function showHospitals(position, query) {
   showLoadingAnimation();
 
   try {
-    const fetchPromise = fetch("http://localhost:3000/search-hospitals", {
+    const fetchPromise = fetch("https://medinavigate.onrender.com/search-hospitals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query, latitude, longitude }),
