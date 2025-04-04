@@ -156,6 +156,10 @@ nav a:hover {
   transform: scale(1.05);
 }
 
+.search-box button:active{
+  transform: scale(0.8);
+}
+
 .instructions {
   text-align: center;
   padding: 40px;
@@ -266,10 +270,6 @@ nav a:hover {
   animation: popIn 0.5s ease-out;
 }
 
-.step:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
 
 
 .step i {
@@ -288,10 +288,6 @@ nav a:hover {
   color: #ccc;
 }
 
-.step:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
 
 /* Mission Section */
 .mission {
@@ -330,43 +326,106 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
-.member {
-  width: 200px;
-  padding: 20px;
-  background: black;
-  border-radius: 10px;
+.team-members .card {
+  width: 17em;
+  height: 21.5em;
+  background: #2fb8d7;
+  transition: 1s ease-in-out;
+  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0px 5px 15px rgba(0, 210, 255, 0.3);
-  text-align: center;
-  transition: transform 0.3s ease-in-out;
+  opacity: 0;
+  animation: cardSlideIn 1s ease-out forwards;
 }
 
-.member img {
-  width: 200px;
-  height: 250px;
-  border-radius: 5%;
-  margin-bottom: 20px;
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+.card:nth-child(4) { animation-delay: 0.5s; }
+.card:nth-child(5) { animation-delay: 0.6s; }
+.card:nth-child(6) { animation-delay: 0.7s; }
+.card:nth-child(7) { animation-delay: 0.8s; }
+
+@keyframes cardSlideIn {
+  0% { opacity: 0; transform: translateY(50px) rotate(-5deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+.team-members .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 210, 255, 0.5);
+}
+
+.card .img {
+  width: 17.8em;
+  height: 45.8em;
+  background: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card .img img {
+  width: 150px;
+  height: 100%;
   object-fit: cover;
 }
 
-.member h3 {
-  font-size: 20px;
+.card span {
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  display: block;
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.card .info {
+  font-weight: 400;
+  color: black;
+  display: block;
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0px;
+}
+
+.card .share {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.card a {
+  color: #00d2ff;
+  transition: 0.4s ease-in-out;
+}
+
+.card a:hover {
+  color: #3a7bd5;
+}
+
+.card button {
+  padding: 0.8em 1.7em;
+  display: block;
+  margin: auto;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  background: #000000;
+  color: #ffffff;
+  transition: 0.4s ease-in-out;
   margin-bottom: 10px;
 }
 
-.member p {
-  font-size: 16px;
-  color: #ccc;
-}
-
-.member:hover {
-  transform: scale(1.1);
+.card button:hover {
+  background: #ffffff;
+  color: black;
   cursor: pointer;
 }
 
-.step:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
 /* Footer */
 footer {
   text-align: center;
@@ -404,7 +463,7 @@ footer {
   padding: 40px;
   background: black;
   border-radius: 15px;
-  box-shadow: 0px 10px 30px rgba(0, 210, 255, 0.3);
+  box-shadow: 0px 10px 30px rgba(0, 210, 255, 0.9);
   animation: slideUp 1.5s ease-out;
 }
 
@@ -524,6 +583,232 @@ footer {
   transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+/* Results Section Container */
+/* Results Section Container */
+.results {
+  padding: 40px 20px;
+  background: #030303;
+  border-radius: 15px;
+  margin: 30px auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+  overflow: hidden;
+}
+
+.results-title {
+  font-size: 2.5rem;
+  color: #00d2ff;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Featured Hospital (Centered) */
+.featured-hospital {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.hospital-card.featured {
+  background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 250px; /* Consistent height */
+  box-shadow: 0 15px 35px rgba(0, 210, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.8s ease forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Evenly distribute content */
+}
+
+.hospital-card.featured::before {
+  content: "Featured";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #00d2ff;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hospital-card.featured:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 210, 255, 0.6);
+}
+
+/* Hospital Results Grid */
+.hospital-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hospital-card {
+  background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+  border-radius: 15px;
+  padding: 25px;
+  width: 100%;
+  max-width: 350px;
+  min-height: 300px; /* Consistent height for all cards */
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Evenly distribute content */
+}
+
+.hospital-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5);
+}
+
+/* Hospital Icon */
+.hospital-icon {
+  font-size: 2.5rem;
+  color: #00d2ff;
+  margin-bottom: 15px;
+  text-align: center;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Hospital Card Content */
+.hospital-card h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 0 0 15px;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.hospital-card .specialty {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin: 5px 0;
+  line-height: 1.4;
+  flex-grow: 1; /* Allow this to expand if needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hospital-card .distance {
+  font-size: 1rem;
+  color: #00d2ff;
+  font-weight: 500;
+  margin: 5px 0;
+  flex-shrink: 0;
+}
+
+.hospital-card .doctors {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+  margin: 10px 0;
+  flex-grow: 1; /* Allow this to expand if needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Directions Button */
+.directions-btn {
+  display: block;
+  width: 80%;
+  margin: 15px auto 0;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.directions-btn:hover {
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  transform: scale(1.05);
+}
+
+.directions-btn:active {
+  transform: scale(0.95);
+}
+
+/* No Results Message */
+.no-results {
+  font-size: 1.3rem;
+  color: #e74c3c;
+  text-align: center;
+  padding: 20px;
+  background: #2d2d2d;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hospital-card.featured { animation-delay: 0.2s; }
+.hospital-results .hospital-card:nth-child(1) { animation-delay: 0.4s; }
+.hospital-results .hospital-card:nth-child(2) { animation-delay: 0.6s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hospital-results {
+    grid-template-columns: 1fr;
+  }
+  .hospital-card.featured,
+  .hospital-card {
+    max-width: 90%;
+    min-height: 400px; /* Maintain consistency on mobile */
+  }
+  .results-title {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
 .social-icon:hover {
   background: #00d2ff;
   transform: scale(1.1);
@@ -570,7 +855,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('o.png') ;
+  background: url('./assets/o.png') ;
   background-size: contain;
   opacity: 0.2;
   z-index: 1;
@@ -657,10 +942,6 @@ footer {
   color: #ccc;
 }
 
-.step:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
 
 /* Testimonials Section */
 .testimonials {
@@ -792,4 +1073,191 @@ footer {
   padding: 20px;
   background: #000000;
   color: white;
+}
+
+/* Loading Animation Container */
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Your Provided Loading Animation CSS */
+.boxes {
+  --size: 32px;
+  --duration: 800ms;
+  height: calc(var(--size) * 2);
+  width: calc(var(--size) * 3);
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  margin-top: calc(var(--size) * 1.5 * -1);
+  transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px);
+}
+
+.boxes .box {
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.boxes .box:nth-child(1) {
+  transform: translate(100%, 0);
+  -webkit-animation: box1 var(--duration) linear infinite;
+  animation: box1 var(--duration) linear infinite;
+}
+
+.boxes .box:nth-child(2) {
+  transform: translate(0, 100%);
+  -webkit-animation: box2 var(--duration) linear infinite;
+  animation: box2 var(--duration) linear infinite;
+}
+
+.boxes .box:nth-child(3) {
+  transform: translate(100%, 100%);
+  -webkit-animation: box3 var(--duration) linear infinite;
+  animation: box3 var(--duration) linear infinite;
+}
+
+.boxes .box:nth-child(4) {
+  transform: translate(200%, 0);
+  -webkit-animation: box4 var(--duration) linear infinite;
+  animation: box4 var(--duration) linear infinite;
+}
+
+.boxes .box > div {
+  --background: #5C8DF6;
+  --top: auto;
+  --right: auto;
+  --bottom: auto;
+  --left: auto;
+  --translateZ: calc(var(--size) / 2);
+  --rotateY: 0deg;
+  --rotateX: 0deg;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  top: var(--top);
+  right: var(--right);
+  bottom: var(--bottom);
+  left: var(--left);
+  transform: rotateY(var(--rotateY)) rotateX(var(--rotateX)) translateZ(var(--translateZ));
+}
+
+.boxes .box > div:nth-child(1) {
+  --top: 0;
+  --left: 0;
+}
+
+.boxes .box > div:nth-child(2) {
+  --background: #145af2;
+  --right: 0;
+  --rotateY: 90deg;
+}
+
+.boxes .box > div:nth-child(3) {
+  --background: #447cf5;
+  --rotateX: -90deg;
+}
+
+.boxes .box > div:nth-child(4) {
+  --background: #DBE3F4;
+  --top: 0;
+  --left: 0;
+  --translateZ: calc(var(--size) * 3 * -1);
+}
+
+@-webkit-keyframes box1 {
+  0%, 50% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(200%, 0);
+  }
+}
+
+@keyframes box1 {
+  0%, 50% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(200%, 0);
+  }
+}
+
+@-webkit-keyframes box2 {
+  0% {
+    transform: translate(0, 100%);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
+  }
+}
+
+@keyframes box2 {
+  0% {
+    transform: translate(0, 100%);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
+  }
+}
+
+@-webkit-keyframes box3 {
+  0%, 50% {
+    transform: translate(100%, 100%);
+  }
+  100% {
+    transform: translate(0, 100%);
+  }
+}
+
+@keyframes box3 {
+  0%, 50% {
+    transform: translate(100%, 100%);
+  }
+  100% {
+    transform: translate(0, 100%);
+  }
+}
+
+@-webkit-keyframes box4 {
+  0% {
+    transform: translate(200%, 0);
+  }
+  50% {
+    transform: translate(200%, 100%);
+  }
+  100% {
+    transform: translate(100%, 100%);
+  }
+}
+
+@keyframes box4 {
+  0% {
+    transform: translate(200%, 0);
+  }
+  50% {
+    transform: translate(200%, 100%);
+  }
+  100% {
+    transform: translate(100%, 100%);
+  }
 }
