@@ -83,7 +83,7 @@ async function showHospitals(position, query) {
 
     const delayPromise = delay(5000);
     const [response] = await Promise.all([fetchPromise, delayPromise]);
-
+    await delay(1500); // Reduced for smoother UX
     const hospitals = await response.json();
 
     const resultSection = document.createElement("section");
@@ -255,4 +255,13 @@ document.getElementById("contactForm").addEventListener("submit", function(event
   console.log("Form Data Submitted:", formData); // Debugging
   alert("Thank you for your message! It has been saved locally."); // Alert should appear
   document.getElementById("contactForm").reset(); // Clear the form
+});
+
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
 });
