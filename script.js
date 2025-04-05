@@ -232,29 +232,37 @@ document.addEventListener("scroll", () => {
   });
 });
 
-// Handle form submission
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent page refresh
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  // Prepare form data
   const formData = {
-      name: name,
-      email: email,
-      message: message,
-      timestamp: new Date().toISOString()
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    message: document.getElementById('message').value
   };
 
-  // For local storage (as per your last request)
-  let storedData = JSON.parse(localStorage.getItem("contactMessages")) || [];
-  storedData.push(formData);
-  localStorage.setItem("contactMessages", JSON.stringify(storedData));
-
-  console.log("Form Data Submitted:", formData); // Debugging
-  alert("Thank you for your message! It has been saved locally."); // Alert should appear
-  document.getElementById("contactForm").reset(); // Clear the form
+  try {
+    // Send to Google Apps Script
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzqKfnVhdLIJSvGmHqmVMDyRlI1hduxXutOL-dKasrkXxNy33X6zAOCws3gm-QYRwh_/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    
+    const result = await response.json();
+    
+    if (result.status === "success") {
+      alert('Thank you! Your feedback has been saved.');
+      this.reset();
+    } else {
+      throw new Error(result.message);
+    }
+    
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Failed to submit. Please try again later.');
+  }
 });
 
 window.addEventListener('scroll', function() {
@@ -265,3 +273,8 @@ window.addEventListener('scroll', function() {
     header.classList.remove('scrolled');
   }
 });
+
+function redirectToAbout() {
+  console.log("Redirect function called!"); // Check if this appears in console
+  window.location.href = "about.html";
+}
