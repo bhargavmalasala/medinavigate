@@ -235,6 +235,11 @@ document.addEventListener("scroll", () => {
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   
+  // Disable submit button to prevent multiple submissions
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
   // Prepare form data
   const formData = {
     name: document.getElementById('name').value,
@@ -244,24 +249,33 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
   try {
     // Send to Google Apps Script
-    const response = await fetch('https://script.google.com/macros/s/AKfycbzqKfnVhdLIJSvGmHqmVMDyRlI1hduxXutOL-dKasrkXxNy33X6zAOCws3gm-QYRwh_/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyf2d8QA7xd_yzrmu_4lKPx1PekkOAiOFtxRw_Vb1U81ePkqppsEFCa4Ucy3c9PEGUh/exec', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'  // Explicitly accept JSON response
+      },
+      body: JSON.stringify(formData),
+      redirect: 'follow'  // Important for Google Apps Script
     });
     
+    // Handle potential redirect from Google Apps Script
     const result = await response.json();
     
-    if (result.status === "success") {
+    if (result && result.status === "success") {
       alert('Thank you! Your feedback has been saved.');
       this.reset();
     } else {
-      throw new Error(result.message);
+      throw new Error(result?.message || 'Unknown server error');
     }
     
   } catch (error) {
     console.error('Error:', error);
-    alert('Failed to submit. Please try again later.');
+    alert(`Failed to submit: ${error.message}`);
+  } finally {
+    // Re-enable submit button
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit';
   }
 });
 
@@ -278,3 +292,5 @@ function redirectToAbout() {
   console.log("Redirect function called!"); // Check if this appears in console
   window.location.href = "about.html";
 }
+
+
