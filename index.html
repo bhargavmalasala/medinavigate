@@ -22,20 +22,14 @@
     </header>
     <main>
       <section class="hero-section">
+        <canvas id="heroCanvas"></canvas>
         <div class="hero-content">
           <h1>Find the Best Hospitals for Your Needs</h1>
-          <p>
-            Search symptoms or diseases and get the best hospital
-            recommendations instantly.
-          </p>
+          <p>Search symptoms or diseases and get the best hospital recommendations instantly.</p>
           <div class="search-container">
             <div class="search-box">
               <i class="fas fa-search"></i>
-              <input
-                type="text"
-                id="searchInput"
-                placeholder="Search your problem..."
-              />
+              <input type="text" id="searchInput" placeholder="Search your problem..." />
               <button onclick="searchHospitals()">Search</button>
             </div>
           </div>
@@ -150,5 +144,6 @@
       <p>&copy; 2025 Medinavigate. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <script src="particles.js"></script>
   </body>
 </html>
